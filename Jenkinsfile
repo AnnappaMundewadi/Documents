@@ -21,9 +21,9 @@ stages {
                     sh '''#!/bin/bash
                  rm -rf ./project
                  mkdir project
-                 git -C ./project clone https://github.com/AnnappaMundewadi/Java_Ansible.git               
+                 git -C ./project clone https://github.com/AnnappaMundewadi/Maven-web-app.git               
          '''                 
-                    sh "cd ./project/Java-Ansible && mvn clean package"
+                    sh "cd ./project/Maven-web-app/Java-Ansible && mvn clean package"
                 }
             }   
         stage('jFrog artifactory'){
