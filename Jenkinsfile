@@ -10,7 +10,7 @@ stages {
                  script{
 
                         
-                            git "https://github.com/GarvitKushwaha/Terra-Ansi-jFrog.git"			    
+                            git "https://github.com/AnnappaMundewadi/Documents.git"			    
                         
                     }
                 }
@@ -21,14 +21,14 @@ stages {
                     sh '''#!/bin/bash
                  rm -rf ./project
                  mkdir project
-                 git -C ./project clone https://github.com/GarvitKushwaha/Maven-web-app.git                 
+                 git -C ./project clone https://github.com/AnnappaMundewadi/Java_Ansible.git               
          '''                 
-                    sh "cd ./project/Maven-web-app/Java-Ansible && mvn clean package"
+                    sh "cd ./project/Java-Ansible && mvn clean package"
                 }
             }   
         stage('jFrog artifactory'){
         steps{
-                sh "cd ./project/Maven-web-app/Java-Ansible && mvn deploy"
+                sh "cd ./project/Java-Ansible && mvn deploy"
         }
         }
         stage('Terraform Plan') {
@@ -45,7 +45,7 @@ stages {
 
         stage('Terraform Apply') {
             steps {
-                    withCredentials([vaultString(credentialsId: 'AWS_ACCESS_KEY_VAULT', variable: 'AWS_ACCESS_KEY_ID'), vaultString(credentialsId: 'AWS_SECRET_ACCESS_KEY_VAULT', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+                    withCredentials([vaultString(credentialsId: 'AWS_ACCESS_KEY_VAULT', variable: 'AWS_ACCESS_KEY_ID'), vaultString(credentialsId: 'AWS_SECRET_KEY_VAULT', variable: 'AWS_SECRET_KEY')]) {
                 bat "cd&cd terraform/Terra-Ansi-jFrog & terraform apply -input=false tfplan"
                     }
             }
