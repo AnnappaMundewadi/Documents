@@ -1,17 +1,4 @@
-terraform {
-required_providers {
-aws = {
-source = "hashicorp/aws"
-version = "~> 3.0"
-}
-}
-}
 
-provider "aws" {
-region = "us-east-1",
-access_key = "AKIAVZFCHXTDHSTSRBNI"
-secret_key = "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"
-}
 
 resource "aws_instance" "web1" {
    ami           = "ami-08e4e35cccc6189f4"
