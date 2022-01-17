@@ -5,19 +5,7 @@ environment {
     }
 agent  any
 stages {
-                 stage('Vault - AWS connection check') {
-            steps {
-                withCredentials([vaultString(credentialsId: 'AWS_ACCESS_KEY_VAULT', variable: 'AWS_ACCESS_KEY'), vaultString(credentialsId: 'AWS_SECRET_KEY_VAULT', variable: 'AWS_SECRET_KEY')]) {
-                       sh '''
-                       
-                        aws ec2 describe-instances
-                        '''
-}
-
-            }
-        }
-
-                stage('checkout') {
+        stage('checkout') {
             steps {
                  script{
 
