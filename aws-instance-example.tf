@@ -6,7 +6,7 @@ resource "aws_instance" "web1" {
    count = 1
   vpc_security_group_ids = ["sg-03fb74a83e964e06f"]
    key_name               = "Linux_Terraform-Chef" 
-   iam_instance_profile =   "role"
+   iam_instance_profile =   "MyInstanceRole"
    user_data = <<-EOF
       #!/bin/bash     
       sudo amazon-linux-extras install ansible2 -y
