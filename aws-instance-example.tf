@@ -5,6 +5,7 @@ resource "aws_instance" "web1" {
    instance_type = "t2.micro"
    count = 1
   vpc_security_group_ids = ["sg-03fb74a83e964e06f"]
+      key_name               = "Key_Name" 
    iam_instance_profile =   "MyInstanceRole"
    user_data = <<-EOF
       #!/bin/bash     
